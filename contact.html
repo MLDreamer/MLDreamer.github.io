@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact — Dr. Swarnendu Bhattacharya</title>
+<meta name="description" content="Get in touch with Dr. Swarnendu Bhattacharya about enterprise agentic AI, production ML, speaking, or advisory work. Based in Bengaluru, India.">
+<link rel="canonical" href="https://drswarnendu.com/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact — Dr. Swarnendu Bhattacharya">
+<meta property="og:description" content="Enterprise agentic AI, production ML, speaking and advisory. Based in Bengaluru, India.">
+<meta name="theme-color" content="#f7f2e8">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:image" content="https://drswarnendu.com/assets/og-banner.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://drswarnendu.com/assets/og-banner.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">Swarnendu<span>.AI</span></a>
+    <button class="menu-btn" aria-label="Toggle menu" onclick="document.getElementById('m').classList.toggle('open')">≡</button>
+    <nav><ul id="m">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="writing.html">Writing</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a class="nav-cta" href="index.html#cv">Download CV</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main>
+<section class="section" style="padding-top:64px;border-bottom:none">
+  <div class="wrap grid grid-2" style="align-items:start">
+    <div>
+      <span class="eyebrow">Contact &amp; availability</span>
+      <h1 style="margin-bottom:.35em">Hiring for a senior AI role? Let's talk.</h1>
+      <p class="lead">I'm open to conversations about <strong>Director / VP AI</strong>, <strong>Head of AI Platforms</strong>, <strong>Director of Data Science</strong> and <strong>supply chain / analytics leadership</strong> roles — and to advisory and speaking engagements. Notice period and start date discussed directly.</p>
+      <p style="margin-top:18px">
+        <a class="btn btn-primary" href="mailto:swarnenduiitb@gmail.com?subject=Intro%20call%20request">📅 Book a 20-minute intro</a>
+        <a class="btn btn-ghost" href="tel:+918879220084">📞 +91 88792 20084</a>
+      </p>
+      <ul class="wlist" style="margin-top:26px">
+        <li><span class="dot">✉</span><div><a href="mailto:swarnenduiitb@gmail.com">swarnenduiitb@gmail.com</a></div></li>
+        <li><span class="dot">☎</span><div>+91 88792 20084 · +91 87770 68160</div></li>
+        <li><span class="dot">in</span><div><a href="https://www.linkedin.com/in/swarnendu-bhattacharya/" target="_blank" rel="noopener">linkedin.com/in/swarnendu-bhattacharya</a></div></li>
+        <li><span class="dot">◆</span><div><a href="https://medium.com/@swarnenduiitb2020i" target="_blank" rel="noopener">medium.com/@swarnenduiitb2020i</a></div></li>
+        <li><span class="dot">◆</span><div><a href="https://substack.com/@swarnenduai" target="_blank" rel="noopener">substack.com/@swarnenduai</a></div></li>
+        <li><span class="dot">⌥</span><div><a href="https://github.com/MLDreamer" target="_blank" rel="noopener">github.com/MLDreamer</a></div></li>
+        <li><span class="dot">◎</span><div class="muted">Bengaluru, India · open to relocation</div></li>
+      </ul>
+    </div>
+
+    <div class="contact-card">
+      <form onsubmit="return mailtoSend(event)">
+        <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" required></div>
+        <div class="field"><label for="email">Your email</label><input id="email" name="email" type="email" required></div>
+        <div class="field"><label for="subject">Subject</label><input id="subject" name="subject" type="text" placeholder="Project, speaking, or question"></div>
+        <div class="field"><label for="msg">Message</label><textarea id="msg" name="msg" rows="5" required></textarea></div>
+        <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center">Send message</button>
+        <p class="muted" style="font-size:.82rem;margin:12px 0 0">This opens your email app with the message ready to send. No data is collected or stored.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>© 2026 Dr. Swarnendu Bhattacharya · Bengaluru, India</span>
+    <div class="social">
+      <a href="https://medium.com/@swarnenduiitb2020i" target="_blank" rel="noopener">Medium</a>
+      <a href="https://substack.com/@swarnenduai" target="_blank" rel="noopener">Substack</a>
+      <a href="https://github.com/MLDreamer" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/swarnendu-bhattacharya/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:swarnenduiitb@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+<script>
+function mailtoSend(e){
+  e.preventDefault();
+  var n=document.getElementById('name').value,
+      em=document.getElementById('email').value,
+      s=document.getElementById('subject').value||'Hello from your website',
+      m=document.getElementById('msg').value;
+  var body=encodeURIComponent(m+"\n\n— "+n+"\n"+em);
+  window.location.href="mailto:swarnenduiitb@gmail.com?subject="+encodeURIComponent(s+" ("+n+")")+"&body="+body;
+  return false;
+}
+document.querySelectorAll('#m a').forEach(a=>a.addEventListener('click',()=>document.getElementById('m').classList.remove('open')));
+</script>
+</body>
+</html>

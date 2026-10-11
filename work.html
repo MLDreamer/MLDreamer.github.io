@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Work, Case Studies &amp; Leadership — Dr. Swarnendu Bhattacharya</title>
+<meta name="description" content="Deep case studies in production agentic AI and enterprise ML: Unilever zero-shot forecasting (£2.5M+), an LLM supply-chain co-pilot, Google Gemini agentic platforms, and CVS clinical NLP. Plus how I lead teams, governance and stakeholders as a Director of AI.">
+<link rel="canonical" href="https://drswarnendu.com/work.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Work & Case Studies — Dr. Swarnendu Bhattacharya">
+<meta property="og:description" content="Production AI systems with measurable impact and the leadership behind them.">
+<meta property="og:image" content="https://drswarnendu.com/assets/og-banner.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://drswarnendu.com/assets/og-banner.png">
+<meta name="theme-color" content="#f7f2e8">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">Swarnendu<span>.AI</span></a>
+    <button class="menu-btn" aria-label="Toggle menu" onclick="document.getElementById('m').classList.toggle('open')">≡</button>
+    <nav><ul id="m">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="writing.html">Writing</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a class="nav-cta" href="index.html#cv">Download CV</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main>
+<section class="section" style="padding-top:64px;border-bottom:none">
+  <div class="wrap">
+    <span class="eyebrow">Case studies</span>
+    <h1 style="margin-bottom:.3em">How I decided, not just what happened</h1>
+    <p class="lead">For each system: the business problem, my role and the decisions I owned, the architecture, the measured outcome and the stack. Where a number is mine to quote it's here; where it was a team result, I say so.</p>
+  </div>
+</section>
+
+<!-- CASE 1 -->
+<section class="section">
+  <div class="wrap">
+    <article class="case" id="case-unilever-forecasting">
+      <div class="kicker">Unilever · 2022–2026 · built from scratch</div>
+      <h2>Zero-shot demand forecasting across 30+ markets</h2>
+      <div class="cols">
+        <div>
+          <div class="block"><h4>The problem</h4><p>Enter 30+ emerging markets with sparse or absent sales history, 25,000+ SKUs and heavy seasonality. The old approach retrained per series and broke on new products; planners fell back on manual adjustment, inflating safety stock and tying up working capital.</p></div>
+          <div class="block"><h4>My role &amp; decisions</h4><p>I built the forecasting &amp; decision-intelligence function from scratch — no inherited team or stack — and owned the architecture and model strategy. I chose a zero-shot, cross-learning model over per-SKU training so new items were forecastable on day one, and pushed to fold external signals (weather, promotions, events) into the feature store. I hired and led the 30-person org and governed EY, Deloitte and BCG delivery; full P&amp;L accountability.</p></div>
+        </div>
+        <div>
+          <div class="block"><h4>Architecture</h4>
+            <div class="flow"><span class="node">External signals</span><span class="arrow">→</span><span class="node">Databricks feature store</span><span class="arrow">→</span><span class="node">Temporal Fusion Transformer (zero-shot)</span><span class="arrow">→</span><span class="node">Quantile ensemble</span><span class="arrow">→</span><span class="node">Bayesian safety-stock</span><span class="arrow">→</span><span class="node">SAP IBP</span></div>
+            <p class="muted" style="font-size:.9rem;margin-top:10px">MLflow + drift monitoring close the loop back into retraining.</p>
+          </div>
+          <div class="block"><h4>Stack</h4><div class="tag-row"><span class="chip">Temporal Fusion Transformer</span><span class="chip">Databricks</span><span class="chip">MLflow</span><span class="chip">Airflow</span><span class="chip">SAP IBP</span><span class="chip">Bayesian optimisation</span><span class="chip">Monte Carlo</span></div></div>
+        </div>
+      </div>
+      <div class="block"><h4>Measured outcome</h4>
+        <div class="outcome"><span>+4–5pp accuracy</span><span>£2.5M+ revenue</span><span>−20% stockouts</span><span>−50% manual planning effort</span></div>
+        <p class="muted" style="margin-top:12px;font-size:.95rem">Honest framing: I owned the architecture and the model decision; the revenue and stockout figures were a team outcome delivered across 90+ markets.</p>
+      </div>
+    </article>
+
+    <!-- CASE 2 -->
+    <article class="case" id="case-unilever-copilot">
+      <div class="kicker">Unilever · first large-scale LLM there</div>
+      <h2>RAG-grounded supply-chain co-pilot</h2>
+      <div class="cols">
+        <div>
+          <div class="block"><h4>The problem</h4><p>Planning knowledge lived in dashboards and people's heads. Answering "why is Southeast Asia short next month?" meant digging; exception triage was manual. And a regulated FMCG org wasn't going to trust a chatbot that hallucinated numbers.</p></div>
+          <div class="block"><h4>My role &amp; decisions</h4><p>I led the first large-scale LLM deployment at Unilever. I insisted the system be retrieval-grounded on the planning data with a deterministic validation layer before any figure reached a human — and that a person stayed in the loop for actions. The real work was change management, not the model.</p></div>
+        </div>
+        <div>
+          <div class="block"><h4>Architecture</h4>
+            <div class="flow"><span class="node">NL query</span><span class="arrow">→</span><span class="node">Hybrid retrieval + rerank</span><span class="arrow">→</span><span class="node">LLM</span><span class="arrow">→</span><span class="node">Guardrail / trust interceptor</span><span class="arrow">→</span><span class="node">HITL approval</span><span class="arrow">→</span><span class="node">Recommendation</span></div>
+          </div>
+          <div class="block"><h4>Stack</h4><div class="tag-row"><span class="chip">RAG</span><span class="chip">LLM agents</span><span class="chip">Vector store</span><span class="chip">HITL</span><span class="chip">Databricks</span><span class="chip">SAP IBP</span></div></div>
+        </div>
+      </div>
+      <div class="block"><h4>Measured outcome</h4>
+        <div class="outcome"><span>200+ planners daily</span><span>faster exception triage</span><span>0 ungrounded numbers surfaced</span></div>
+        <p class="muted" style="margin-top:12px;font-size:.95rem">Adoption — people changing how they work — was the win, and it depended on the grounding and guardrails more than the model.</p>
+      </div>
+    </article>
+
+    <!-- CASE 3 -->
+    <article class="case" id="case-gemini-agents">
+      <div class="kicker">Cognizant · current · Google Gemini &amp; Microsoft</div>
+      <h2>Portable, governed agentic AI platform</h2>
+      <div class="cols">
+        <div>
+          <div class="block"><h4>The problem</h4><p>Enterprises are wiring agents to a single vendor runtime — unobservable, unrecoverable mid-task, and impossible to govern to GDPR / HIPAA / EU AI Act. Fleets of agents fail in ways a single model never does.</p></div>
+          <div class="block"><h4>My role &amp; decisions</h4><p>I'm architecting production agentic platforms, including the semantic ontologies and context substrates that let Google Gemini agents reason consistently across heterogeneous enterprise data. My core decisions: decouple workflows from any one runtime (A2A + MCP), and treat governance and self-healing as first-class, not bolted on. This work is in flight; I'll update the outcomes as it ships.</p></div>
+        </div>
+        <div>
+          <div class="block"><h4>Architecture</h4>
+            <div class="flow"><span class="node">Enterprise data</span><span class="arrow">→</span><span class="node">Semantic ontology</span><span class="arrow">→</span><span class="node">Multi-gateway orchestrator (A2A / MCP)</span><span class="arrow">→</span><span class="node">Gemini / Bedrock / Vertex / Azure agents</span><span class="arrow">→</span><span class="node">Validation + RBAC + HITL</span></div>
+            <p class="muted" style="font-size:.9rem;margin-top:10px">State-aware async runtime with checkpointing and self-recovery underpins execution.</p>
+          </div>
+          <div class="block"><h4>Stack</h4><div class="tag-row"><span class="chip">Google Gemini</span><span class="chip">A2A</span><span class="chip">MCP</span><span class="chip">Ontologies</span><span class="chip">AWS Bedrock</span><span class="chip">GCP Vertex AI</span><span class="chip">Azure OpenAI</span><span class="chip">EU AI Act</span></div></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CASE 4 -->
+    <article class="case" id="case-cvs-nlp">
+      <div class="kicker">CVS Health · regulated healthcare</div>
+      <h2>Clinical NLP for ICD-10 coding</h2>
+      <div class="cols">
+        <div>
+          <div class="block"><h4>The problem</h4><p>Diagnosis and procedure detail sat in unstructured clinical notes. Manual ICD-10 coding was slow and inconsistent — and inside a HIPAA environment you can't ship a model you can't audit.</p></div>
+          <div class="block"><h4>My role &amp; decisions</h4><p>As lead data scientist / delivery manager I designed the document-intelligence pipeline and the compliance-grade validation around it: cross-validation, AUCPR and full audit trails from the start, not a retrofitted review, with a human coder always able to trace a decision.</p></div>
+        </div>
+        <div>
+          <div class="block"><h4>Architecture</h4>
+            <div class="flow"><span class="node">Clinical notes</span><span class="arrow">→</span><span class="node">BERT/GPT NER + classification</span><span class="arrow">→</span><span class="node">ICD-10 codes</span><span class="arrow">→</span><span class="node">Validation (AUCPR)</span><span class="arrow">→</span><span class="node">Audit trail</span><span class="arrow">→</span><span class="node">Coder review</span></div>
+          </div>
+          <div class="block"><h4>Stack</h4><div class="tag-row"><span class="chip">BERT/GPT</span><span class="chip">NER</span><span class="chip">PCA / Factor Analysis</span><span class="chip">AUCPR</span><span class="chip">AWS / GCP</span><span class="chip">MLOps</span></div></div>
+        </div>
+      </div>
+      <div class="block"><h4>Measured outcome</h4>
+        <div class="outcome"><span>−35% claims processing time</span><span>compliance-grade validation</span><span>full audit trails</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">Leadership · How I work</span>
+    <h2 style="margin-top:0">Director-level means teams, governance and trust — not just models</h2>
+    <div class="grid grid-2" style="margin-top:22px">
+      <div class="card"><h3>Building teams from zero</h3><p>Hired and grew a 30-person data science and engineering organisation at Unilever across data science, engineering and analytics — and mentored senior practitioners, including as a mentor at Analytics Vidhya.</p></div>
+      <div class="card"><h3>Governing vendors</h3><p>Managed concurrent delivery from EY, Deloitte and BCG plus niche AI firms — setting the governance frameworks that balanced velocity, quality and compliance across global operations.</p></div>
+      <div class="card"><h3>P&amp;L and stakeholder influence</h3><p>Director-scoped ownership of outcomes, translating technical trade-offs into decisions for planners through to CXOs. Framed AI investment around measurable returns, not demos.</p></div>
+      <div class="card"><h3>Governance-by-design</h3><p>Built compliance and human oversight into how systems run — trust interceptors, RBAC, HITL escalation and audit trails — so enterprises can move fast without breaking the rules that matter.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN SOURCE -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">Open source · <a href="https://github.com/MLDreamer" target="_blank" rel="noopener">github.com/MLDreamer</a></span>
+    <h2 style="margin-top:0">Proof, not demos.</h2>
+    <p class="lead">A selection from 14 public repos — the math I believe in, made runnable. The flagship, <strong>AIMathematicallyexplained</strong>, lays out the thesis behind everything here.</p>
+    <div class="grid grid-2" style="margin-top:24px">
+      <a class="card" href="https://github.com/MLDreamer/AIMathematicallyexplained" target="_blank" rel="noopener" style="color:inherit">
+        <div class="meta">★ 22 · Jupyter Notebook</div>
+        <h3>AIMathematicallyexplained</h3>
+        <p>A repository that mathematically argues modern AI systems are classical mathematics with better computers. I don't believe the hype — I believe the matrices.</p>
+      </a>
+      <a class="card" href="https://github.com/MLDreamer/ai-feed" target="_blank" rel="noopener" style="color:inherit">
+        <div class="meta">★ 4 · Python</div>
+        <h3>ai-feed</h3>
+        <p>A 4-stage adversarial research auditor: fetches papers from arXiv &amp; HuggingFace, extracts claims, and uses DeepSeek-R1 to verify them against raw abstracts — a self-correcting, agentic digest pipeline.</p>
+      </a>
+      <a class="card" href="https://github.com/MLDreamer/titans-pytorch-swarnenduai" target="_blank" rel="noopener" style="color:inherit">
+        <div class="meta">★ 3 · Python</div>
+        <h3>titans-pytorch</h3>
+        <p>Minimal PyTorch implementation of Google's <em>Titans: Learning to Memorize at Test Time</em> — reading frontier research by rebuilding it.</p>
+      </a>
+      <a class="card" href="https://github.com/MLDreamer/Forecasting-Deployed" target="_blank" rel="noopener" style="color:inherit">
+        <div class="meta">★ 2 · Jupyter Notebook</div>
+        <h3>Forecasting-Deployed</h3>
+        <p>Deep dives into time series, GenAI and MLOps — with real-world code, ROI insight and the honest failures of scaling ML in production.</p>
+      </a>
+      <a class="card" href="https://github.com/MLDreamer/MCP-Research-Server" target="_blank" rel="noopener" style="color:inherit">
+        <div class="meta">★ 1 · Python</div>
+        <h3>MCP-Research-Server</h3>
+        <p>A production-grade Model Context Protocol server for research automation, Obsidian integration and web search.</p>
+      </a>
+      <a class="card" href="https://github.com/MLDreamer/Substack-AI-lessons" target="_blank" rel="noopener" style="color:inherit">
+        <div class="meta">Jupyter Notebook · MIT License</div>
+        <h3>Substack-AI-lessons</h3>
+        <p>Code and models behind the essays on my Substack — reverse-engineering the math that bounds what AI (and identity) can do.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">Experience</span>
+    <h2 style="margin-top:0">The full path</h2>
+    <div class="timeline" style="margin-top:26px">
+      <div class="tl-item">
+        <div class="when">Jun 2026 — Present</div>
+        <h3>Director of Artificial Intelligence</h3>
+        <div class="org">Cognizant · Tier-1 Global Services · Bengaluru</div>
+        <ul>
+          <li>Industrialising enterprise-grade agentic AI platforms — including semantic ontologies and context substrates for Google Gemini agent fleets</li>
+          <li>Multi-gateway orchestration (A2A, MCP) across AWS Bedrock / GCP Vertex AI / Azure OpenAI without vendor lock-in</li>
+          <li>Governance-by-design: trust interceptors, RBAC, HITL escalation, GDPR / HIPAA / EU AI Act; influences CXO-level adoption</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="when">Mar 2026 — Jun 2026</div>
+        <h3>Mentor — Production AI Engineering</h3>
+        <div class="org">Analytics Vidhya</div>
+        <ul><li>Guide senior data scientists on production-grade RAG, hybrid retrieval + cross-encoder reranking, and LangGraph state machines — first principles over hype</li></ul>
+      </div>
+      <div class="tl-item">
+        <div class="when">Aug 2022 — May 2026</div>
+        <h3>Senior Manager, Data Science &amp; AI Platforms</h3>
+        <div class="org">Unilever · Fortune 100 · Bengaluru</div>
+        <ul>
+          <li>End-to-end AI transformation: 90+ markets, 25K+ SKUs, 200+ daily users, full P&amp;L ownership</li>
+          <li>£2.5M+ revenue uplift from forecasting; 20% stockout reduction via Bayesian safety-stock</li>
+          <li>Built a 30-person DS org; governed multi-vendor delivery from EY, Deloitte, BCG</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="when">Oct 2021 — Aug 2022</div>
+        <h3>Delivery Manager &amp; Lead Data Scientist</h3>
+        <div class="org">Cognizant · Client: CVS Health Insurance</div>
+        <ul><li>Healthcare NLP for ICD-10 coding; 35% faster claims; compliance-grade validation</li></ul>
+      </div>
+      <div class="tl-item">
+        <div class="when">Jun 2019 — Sep 2021</div>
+        <h3>Senior Data Scientist</h3>
+        <div class="org">Firstsource Solutions · U.S. Credit Card Company</div>
+        <ul><li>Credit risk models (+10% quarterly ROI); stochastic workforce planning under regulatory accountability</li></ul>
+      </div>
+      <div class="tl-item">
+        <div class="when">Jan 2018 — Jul 2019</div>
+        <h3>Senior Research Consultant &amp; Quantitative Analyst</h3>
+        <div class="org">WorldQuant · SGFC Single Family Office · Mumbai / Geneva</div>
+        <ul><li>Alpha research and systematic trading; time-series models under instant financial feedback</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLKIT -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">Toolkit</span>
+    <h2 style="margin-top:0">Stack I reach for</h2>
+    <div class="grid grid-2">
+      <div class="card"><h3>Agentic &amp; LLM systems</h3><p>Multi-agent orchestration · LLM orchestration patterns · production RAG (vector stores, reranking, semantic routing) · MCP · multi-cloud (Bedrock, Vertex AI, Azure OpenAI) · HITL governance</p></div>
+      <div class="card"><h3>Production ML</h3><p>Databricks · MLflow · Airflow · feature stores · real-time inference · drift monitoring · Bayesian optimization · evaluation frameworks &amp; audit trails</p></div>
+      <div class="card"><h3>Enterprise integration</h3><p>SAP IBP · legacy data-silo connectivity · end-to-end ML pipelines · compliance-by-design architecture</p></div>
+      <div class="card"><h3>Mathematics &amp; quant</h3><p>Stochastic programming · large-scale optimization · Monte Carlo · Bayesian methods · time-series · statistical rigor in production</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>© 2026 Dr. Swarnendu Bhattacharya · Bengaluru, India</span>
+    <div class="social">
+      <a href="https://medium.com/@swarnenduiitb2020i" target="_blank" rel="noopener">Medium</a>
+      <a href="https://substack.com/@swarnenduai" target="_blank" rel="noopener">Substack</a>
+      <a href="https://github.com/MLDreamer" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/swarnendu-bhattacharya/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:swarnenduiitb@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+<script>document.querySelectorAll('#m a').forEach(a=>a.addEventListener('click',()=>document.getElementById('m').classList.remove('open')));</script>
+</body>
+</html>
