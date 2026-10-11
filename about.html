@@ -3,12 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>About — Dr. Swarnendu Bhattacharya</title>
-<meta name="description" content="How a Boeing-sponsored PhD in optimization became production agentic AI at Fortune 100 scale. From proving what you build to industrialising it — the path and the principles behind Dr. Swarnendu Bhattacharya's work.">
+<title>About Dr. Swarnendu Bhattacharya — AI Architect · Production ML · Agentic AI · IIT Bombay PhD</title>
+<meta name="description" content="Dr. Swarnendu Bhattacharya: Boeing-sponsored IIT Bombay PhD. Built Unilever's zero-shot TFT forecasting platform from scratch — £2.5M+, 90+ markets. Architecting Google Gemini agentic platforms at Cognizant. 100+ publications. AIM 40 Under 40.">
+<meta name="keywords" content="AI architect India, production ML engineer, agentic AI practitioner, Principal AI engineer Bengaluru, Director AI India, IIT Bombay PhD ML, ex-Unilever AI, Temporal Fusion Transformer, RAG production, LLM orchestration, demand forecasting ML India">
 <link rel="canonical" href="https://drswarnendu.com/about.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="About — Dr. Swarnendu Bhattacharya">
-<meta property="og:description" content="From a Boeing-sponsored PhD in optimization to production agentic AI at Fortune 100 scale. The principles I build by.">
+<meta property="og:title" content="About — Dr. Swarnendu Bhattacharya · VP AI · Chief AI Officer">
+<meta property="og:description" content="IIT Bombay PhD → quant finance → production ML → Unilever (built AI from scratch) → Cognizant Director AI. AIM 40 Under 40. Targeting VP AI and CAO roles globally.">
 <meta name="theme-color" content="#f7f2e8">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta property="og:image" content="https://drswarnendu.com/assets/og-banner.png">
@@ -36,37 +37,77 @@
 <main>
 <section class="section" style="border-bottom:none;padding-top:64px">
   <div class="wrap prose">
+
     <span class="eyebrow">About</span>
     <h1 style="margin-bottom:.4em">I don't believe in AI magic.</h1>
     <p class="lead">I believe in the mathematics. That isn't a tagline — it's a filter. It tells me which problems are worth solving, which architectures will survive production, and which AI initiatives are theatre dressed as transformation.</p>
 
-    <h2>How I got here</h2>
-    <p>I came up through mathematics. A Boeing-sponsored PhD from IIT Bombay in Optimization &amp; Operations Research — stochastic programming, large-scale combinatorial optimization, simulation under uncertainty — gave me something rare in this field: the ability to <em>prove</em> what I build, not just demo it. Before that, an M.Tech from NIT Tiruchirappalli and a B.Tech in Mechanical Engineering.</p>
-    <p>Then quantitative finance (WorldQuant, a Geneva family office), where feedback is instant and brutal — a wrong model costs money the same day. It installed an evaluation discipline I never lost. Then production ML for a US credit card company, healthcare NLP for CVS Health, and nearly four years at Unilever.</p>
-    <p>At Unilever I built the forecasting and decision-intelligence function <strong>from scratch</strong> — no inherited team, no existing infrastructure. A Temporal Fusion Transformer zero-shot forecasting platform across 30+ new markets under data sparsity, 25,000+ SKUs, 200+ planners daily, 90+ markets. Full stack: feature store, MLflow, real-time inference, drift monitoring, SAP IBP. Hired and led a 30-person org; governed EY, Deloitte and BCG concurrently. The numbers — 4–5pp accuracy step-change, £2.5M+ revenue uplift, 20% fewer stockouts — came from the mathematics, not the marketing.</p>
-    <p>Now at Cognizant I work on the harder problem: what comes after the model. I architect enterprise agentic AI platforms — autonomous agent fleets that are observable, self-healing and governed — including semantic ontologies that let Google Gemini agents reason across heterogeneous enterprise data, with multi-cloud orchestration across AWS Bedrock, GCP Vertex AI and Azure OpenAI.</p>
+    <!-- KEY ARCHITECTURE DECISIONS — the signal for technical hiring managers -->
+    <div class="callout" style="margin-top:28px">
+      <p style="margin:0;font-weight:600;color:var(--ink)">Architecture decisions I've owned in production:</p>
+      <ul style="margin:12px 0 0;padding-left:18px;color:var(--ink-muted);line-height:1.8">
+        <li><strong>Zero-shot vs. per-series training:</strong> Chose cross-learning TFT so new SKUs were forecastable on day one without retraining — 90+ markets, 25K+ SKUs</li>
+        <li><strong>Retrieval-grounded LLM vs. fine-tuned:</strong> Insisted on RAG + deterministic validation layer before any figure reached a planner — zero hallucinated numbers in production</li>
+        <li><strong>State-aware async agent runtime:</strong> Designed checkpointing + self-recovery so agent fleets fail gracefully, not catastrophically</li>
+        <li><strong>Decoupled from vendor runtime:</strong> A2A + MCP abstraction layer — same workflow runs on Gemini, Bedrock, Vertex AI or Azure OpenAI without rewriting agent logic</li>
+        <li><strong>Governance as first-class citizen:</strong> Trust interceptors, RBAC, HITL escalation designed into the runtime — not added after the compliance team asks</li>
+      </ul>
+    </div>
 
+    <h2>How I got here</h2>
+    <p>I came up through mathematics. A Boeing-sponsored PhD from IIT Bombay in Optimization &amp; Operations Research — stochastic programming, large-scale combinatorial optimization, simulation under uncertainty — gave me something rare in this field: the ability to <em>prove</em> what I build, not just demo it. Before that, an M.Tech from NIT Tiruchirappalli and a B.Tech in Mechanical Engineering from WBUT.</p>
+    <p>Then quantitative finance — WorldQuant and a Geneva family office — where feedback is instant and brutal. A wrong model costs money the same day. It installed an evaluation discipline I never lost. Then production ML for a US credit card company, healthcare NLP for CVS Health inside a HIPAA environment, and nearly four years at Unilever.</p>
+    <p>At Unilever I didn't join an existing AI team. <strong>I built the entire forecasting and decision-intelligence function from scratch</strong> — hiring the 30-person org, defining the architecture, choosing the model strategy, managing P&amp;L, and governing three Big 4 firms (EY, Deloitte, BCG) concurrently. The results — 4–5pp accuracy step-change, £2.5M+ revenue uplift, 20% fewer stockouts, 200+ daily users across 90+ markets — came from the mathematics. Not the slide deck.</p>
+    <p>Now at Cognizant I work on what comes after the model. I architect enterprise agentic AI platforms — autonomous agent fleets that are observable, self-healing and governed for GDPR / HIPAA / EU AI Act — including the semantic ontologies that let Google Gemini agents reason consistently across heterogeneous enterprise data, with multi-cloud orchestration across AWS Bedrock, GCP Vertex AI and Azure OpenAI.</p>
     <h2>What I care about</h2>
     <div class="callout">
       <p><strong>Most teams building agents are solving for capability. I'm solving for industrialisation.</strong> Trust and evaluation are the product, not an afterthought. The hard part is not the model — it's proving, to a regulator and a skeptic, when a system is right, when it is unsure, and when it should stop and ask a human.</p>
     </div>
-    <p>I am wary of fluent chain-of-thought that only <em>reads</em> like reasoning. I design for the moment a model is confidently wrong, because that's the expensive failure: deterministic guardrails, human-in-the-loop escalation, audit trails, and evals that reflect the real distribution — not a curated demo.</p>
+    <p>I am wary of fluent chain-of-thought that only <em>reads</em> like reasoning. I design for the moment a model is confidently wrong — deterministic guardrails, human-in-the-loop escalation, audit trails, and evals that reflect the real distribution, not a curated demo. This is what governance-by-design means in practice.</p>
+
+    <h2>What I've shipped and how</h2>
+    <div class="grid grid-2" style="margin-top:18px">
+      <div class="card">
+        <h3>Zero-shot forecasting platform</h3>
+        <p>TFT cross-learning model so new markets and SKUs are forecastable without retraining. Databricks feature store, MLflow, Airflow orchestration, Bayesian safety-stock, real-time inference into SAP IBP. Built end-to-end from scratch at Unilever — £2.5M+ uplift.</p>
+      </div>
+      <div class="card">
+        <h3>RAG-grounded LLM co-pilot</h3>
+        <p>Hybrid retrieval + cross-encoder reranking, deterministic validation guardrail before any output reaches a user, HITL approval for plan actions. 200+ planners daily, zero hallucinated figures. The change management was the hard part, not the model.</p>
+      </div>
+      <div class="card">
+        <h3>Production agentic platform</h3>
+        <p>Semantic ontologies for Gemini agent reasoning across heterogeneous enterprise data. A2A + MCP abstraction makes the workflow cloud-portable. State-aware async runtime with checkpointing, RBAC, HITL escalation and full audit trails.</p>
+      </div>
+      <div class="card">
+        <h3>Clinical NLP pipeline</h3>
+        <p>BERT/GPT NER + ICD-10 classification inside a HIPAA environment. AUCPR-validated from the start, full audit trail per prediction, human coder always able to trace a decision back to source text. −35% claims processing time at CVS Health.</p>
+      </div>
+    </div>
 
     <h2>Teaching &amp; recognition</h2>
     <ul class="wlist">
-      <li><span class="dot">◆</span><div><strong>AIM 40 Under 40 (2026)</strong><div class="sub">Analytics India Magazine — Top AI Innovator for enterprise AI impact</div></div></li>
+      <li><span class="dot">◆</span><div><strong>AIM 40 Under 40 (2026)</strong><div class="sub">Analytics India Magazine — India's highest AI industry recognition for enterprise impact</div></div></li>
       <li><span class="dot">◆</span><div><strong>Mentor · Analytics Vidhya</strong><div class="sub">Guiding senior data scientists on production-grade RAG, LangGraph state machines and zero-defect AI infrastructure</div></div></li>
-      <li><span class="dot">◆</span><div><strong>100+ publications · 13K+ followers</strong><div class="sub">Medium, Substack, Towards AI as DrSwarnenduAI — agentic AI, LLMOps, production ML</div></div></li>
-      <li><span class="dot">◆</span><div><strong>Keynote speaker</strong><div class="sub">Machine Learning Developers Summit · International Forecasting Forum</div></div></li>
+      <li><span class="dot">◆</span><div><strong>100+ publications · 13K+ followers</strong><div class="sub">Medium, Substack, Towards AI as DrSwarnenduAI — agentic AI, LLMOps, production ML, forecasting mathematics</div></div></li>
+      <li><span class="dot">◆</span><div><strong>Keynote speaker</strong><div class="sub">Machine Learning Developers Summit (MLDS) · International Forecasting Forum</div></div></li>
     </ul>
 
     <h2>Background, briefly</h2>
-    <p class="muted" style="font-size:.98rem"><strong>Education —</strong> PhD, Mechanical Engineering &amp; Operations Research, IIT Bombay (2014–2019) · M.Tech, NIT Tiruchirappalli (2011–2013) · B.Tech, Mechanical, WBUT Kolkata · MicroMasters, Supply Chain Analytics, MITx on edX · EPAT (Algorithmic Trading), QuantInsti<br>
-    <strong>Certifications —</strong> edX: Supply Chain Design · Supply Chain Management Tools &amp; Techniques · Supply Chain Dynamics · CSCA01 Supply Chain Planning &amp; Strategy<br>
-    <strong>Languages —</strong> English · Hindi · Bengali<br>
-    <strong>Contact —</strong> Bengaluru, India · <a href="mailto:swarnenduiitb@gmail.com">swarnenduiitb@gmail.com</a></span></p>
+    <p class="muted" style="font-size:.98rem">
+      <strong>Education —</strong> PhD, Mechanical Engineering &amp; Operations Research (Optimization), IIT Bombay (Boeing-sponsored, 2014–2019) · M.Tech, Production Engineering, NIT Tiruchirappalli (2011–2013) · B.Tech, Mechanical Engineering, WBUT Kolkata · MicroMasters, Supply Chain Analytics, MITx on edX · EPAT (Algorithmic Trading), QuantInsti<br><br>
+      <strong>Certifications —</strong> Supply Chain Design · Supply Chain Management Tools &amp; Techniques · Supply Chain Dynamics · CSCA01 Supply Chain Planning &amp; Strategy (edX)<br><br>
+      <strong>Core skills —</strong> Agentic AI · LLM Orchestration · Multi-agent systems · MCP · A2A · RAG · Temporal Fusion Transformer · Bayesian optimization · Monte Carlo simulation · Stochastic programming · MLflow · Databricks · Airflow · SAP IBP · AWS Bedrock · GCP Vertex AI · Azure OpenAI · GDPR · HIPAA · EU AI Act<br><br>
+      <strong>Languages —</strong> English · Hindi · Bengali<br><br>
+      <strong>Location —</strong> Bengaluru, India · Open to relocation (global) · Open to remote<br><br>
+      <strong>Contact —</strong> <a href="mailto:swarnenduiitb@gmail.com">swarnenduiitb@gmail.com</a> · <a href="tel:+918879220084">+91 88792 20084</a>
+    </p>
 
-    <p style="margin-top:34px"><a class="btn btn-primary" href="work.html">See what I've shipped</a></p>
+    <p style="margin-top:34px;display:flex;gap:14px;flex-wrap:wrap">
+      <a class="btn btn-primary" href="work.html">Full case studies with architecture →</a>
+      <a class="btn btn-ghost" href="contact.html">Get in touch →</a>
+    </p>
+
   </div>
 </section>
 </main>
